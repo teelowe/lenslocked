@@ -27,24 +27,15 @@ func executeTemplate(w http.ResponseWriter, filepath string) {
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "home.gohtml")
-	executeTemplate(w, tplPath)
+	executeTemplate(w, filepath.Join("templates", "home.gohtml"))
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
-	tplPath := filepath.Join("templates", "contact.gohtml")
-	executeTemplate(w, tplPath)
-
+	executeTemplate(w, filepath.Join("templates", "contact.gohtml"))
 }
 
 func faqHandler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprint(w, `<h1>FAQ Page</h1>
-<ul>
-<li><b>what is foo?</b> foo</li>
-<li><b>support?</b> <a href=mailto:support@lenslocked.com>support@lenslocked.com</a></li>
-</ul>
-`)
+	executeTemplate(w, filepath.Join("templates", "faq.gohtml"))
 }
 
 func main() {
