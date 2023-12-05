@@ -1,5 +1,10 @@
 <h1>FAQ Page</h1>
 <ul>
-<li><b>what is foo?</b> foo</li>
-<li><b>support?</b> <a href=mailto:support@lenslocked.com>support@lenslocked.com</a></li>
+  {{ range .}}
+    {{template "qa" .}}
+  {{end}}
 </ul>
+
+{{define "qa"}}
+<li><b>{{.Question}}</b> {{.Answer}}</li>
+{{end}}
