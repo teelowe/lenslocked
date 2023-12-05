@@ -1,26 +1,27 @@
 package main
 
 import (
-	"html/template"
-	"os"
+	"errors"
+	"fmt"
 )
 
-type User struct {
-	Name string
+func main() {
+	err := B()
+	if errors.Is(err, ErrNotFound) {
+		fmt.Printf("error was of type %v\n", err)
+	}
 }
 
-func main() {
-	t, err := template.ParseFiles("hello.gohtml")
-	if err != nil {
-		panic(err)
-	}
+var ErrNotFound = errors.New("not found")
 
-	user := User{
-		Name: "John Smith",
-	}
+func A() error {
+	return ErrNotFound
+}
 
-	err = t.Execute(os.Stdout, user)
+func B() error {
+	err := A()
 	if err != nil {
-		panic(err)
+		return fmt.Errorf("b: %w", err)
 	}
+	return nil
 }

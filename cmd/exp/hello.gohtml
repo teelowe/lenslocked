@@ -1,1 +1,6 @@
-<h1>Hello, {{.Name}}</h1>
+<h1>Hello, {{.Name}}, {{.Age}}, {{.Phone}}, {{.Keys}}, {{.Foo.Name}}</h1>
+{{ if .Foo.Name }}
+<p>{{ .Foo.Name }}</p>
+{{ else }}
+<p>joe</p>
+{{ end }}
