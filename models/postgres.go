@@ -40,6 +40,6 @@ type PostgresConfig struct {
 }
 
 func (cfg PostgresConfig) String() string {
-	return fmt.Sprintf("host=%s port=%s, user=%s, password=%s, database=%s, sslmode=%s",
+	return fmt.Sprintf("host=%s port=%s user=%s password=%s database=%s sslmode=%s",
 		cfg.Host, cfg.Port, cfg.User, cfg.Password, cfg.Database, cfg.SSLMode)
 }
