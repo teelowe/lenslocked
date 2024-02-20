@@ -3,12 +3,15 @@ package controllers
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/teelowe/lenslocked/models"
 )
 
 type Users struct {
 	Templates struct {
 		New Template
 	}
+	UserService *models.UserService
 }
 
 // render signup form
